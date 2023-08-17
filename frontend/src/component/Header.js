@@ -11,7 +11,6 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef();
   const userData = useSelector((state) => state.user);
-  console.log(userData);
   const dispatch = useDispatch();
   const handleShowMenu = () => {
     setShowMenu((prev) => !prev);
@@ -44,6 +43,8 @@ const Header = () => {
       console.error("Có lỗi xảy ra trong quá trình đăng xuất:", error);
     }
   };
+
+  const cartItemNumber = useSelector((state) => state.product.cartItem);
   useEffect(() => {
     document.addEventListener("click", handleClickOutsideMenu);
     return () => {
@@ -66,16 +67,20 @@ const Header = () => {
         {/* Thanh điều hướng */}
         <div className="flex items-center gap-4 md:gap-8">
           <nav className="gap-3 md:gap-6 text-base md:text-lg hidden md:flex">
-            <Link to={""}>Home</Link>
-            <Link to={"menu"}>Menu</Link>
-            <Link to={"about"}>About</Link>
-            <Link to={"contact"}>Contact</Link>
+            <Link to={""} className="px-2 py-1">
+              Trang chủ
+            </Link>
+            <Link to={"contact"} className="px-2 py-1">
+              Liên hệ
+            </Link>
           </nav>
           <div className="text-2xl text-slate-500 relative">
-            <BsCartFill />
-            <div className="absolute -top-1 -right-1 text-white bg-red-500 h-4 w-4 rounded-full m-0 p-0 text-sm text-center">
-              0
-            </div>
+            <Link to={"cart"}>
+              <BsCartFill />
+              <div className="absolute -top-1 -right-1 text-white bg-red-500 h-4 w-4 rounded-full m-0 p-0 text-sm text-center">
+                {cartItemNumber.length}
+              </div>
+            </Link>
           </div>
           <div className=" text-slate-500" ref={menuRef}>
             <div
@@ -83,7 +88,11 @@ const Header = () => {
               onClick={handleShowMenu}
             >
               {userData.image ? (
-                <img src={userData.image} className="h-full w-full" />
+                <img
+                  src={userData.image}
+                  alt={"none"}
+                  className="h-full w-full"
+                />
               ) : (
                 <HiOutlineUserCircle className="h-full w-full" />
               )}
@@ -114,16 +123,10 @@ const Header = () => {
                     </Link>
                     <nav className="text-base md:text-lg flex flex-col md:hidden">
                       <Link to={""} className="px-2 py-1">
-                        Home
-                      </Link>
-                      <Link to={"menu"} className="px-2 py-1">
-                        Menu
-                      </Link>
-                      <Link to={"about"} className="px-2 py-1">
-                        About
+                        Trang chủ
                       </Link>
                       <Link to={"contact"} className="px-2 py-1">
-                        Contact
+                        Liên hệ
                       </Link>
                     </nav>
                   </>

@@ -1,7 +1,7 @@
 import React from "react";
 import WorkInProgress from "../assest/wip.gif";
 
-const Contact = () => {
+const Payment = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <img src={WorkInProgress} alt="Work in Progress" className="mb-4 w-64" />
@@ -12,4 +12,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Payment;

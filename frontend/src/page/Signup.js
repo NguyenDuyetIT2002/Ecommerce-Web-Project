@@ -13,7 +13,7 @@ const Signup = () => {
   // showPassword useState and handle show password
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => {
-    // Đổi giá trị showPassword sang true or false
+    // showPassword(false) => true or true => false
     setShowPassword((prev) => !prev);
   };
 
@@ -158,7 +158,7 @@ const Signup = () => {
               onClick={handleShowPassword}
             >
               {
-                // ShowPassword = true => hiển thị BiHide(icon ẩn mật khẩu) và ngược lại
+                // ShowPassword = true => show Bihide else show BiShow
                 showPassword ? <BiHide /> : <BiShow />
               }
             </span>

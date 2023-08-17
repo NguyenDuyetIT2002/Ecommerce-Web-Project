@@ -95,20 +95,20 @@ const Newproduct = () => {
           onChange={handleOnChange}
           value={data.category}
         >
-          <option value={"other"}>Chọn loại mặt hàng!</option>
-          <option value={"quandai"}>Quần dài</option>
-          <option value={"quandui"}>Quần đùi</option>
-          <option value={"aosomi"}>Áo sơ mi</option>
-          <option value={"aokhoac"}>Áo khoác</option>
-          <option value={"aothun"}>Áo thun</option>
-          <option value={"quanjean"}>Quần Jean</option>
+          <option value={"Khác"}>Chọn loại mặt hàng!</option>
+          <option value={"Quần dài"}>Quần dài</option>
+          <option value={"Quần đùi"}>Quần đùi</option>
+          <option value={"Áo sơ mi"}>Áo sơ mi</option>
+          <option value={"Áo khoác"}>Áo khoác</option>
+          <option value={"Áo thun"}>Áo thun</option>
+          <option value={"Quần jean"}>Quần Jean</option>
         </select>
 
         <label htmlFor="image">
           Ảnh
           <div className="h-40 w-full bg-slate-300 my-3 flex items-center justify-center cursor-pointer rounded-sm">
             {data.image ? (
-              <img src={data.image} className="h-full" />
+              <img src={data.image} alt={"none"} className="h-full" />
             ) : (
               <span className="text-5xl">
                 <BsCloudUpload />

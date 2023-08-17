@@ -34,7 +34,7 @@ const ListProduct = () => {
         setIsLoading(false);
       }
     })();
-  }, []);
+  }, [dispatch]);
 
   const handleDelete = async (productId) => {
     setSelectedProductId(productId);
@@ -134,13 +134,14 @@ const ListProduct = () => {
             onChange={(e) => setSelectedCategory(e.target.value)}
             className="bg-white py-2 px-4 border rounded mr-2"
           >
-            <option value="all">Tất cả danh mục</option>
-            <option value="quandai">Quần dài</option>
-            <option value="quandui">Quần đùi</option>
-            <option value="aosomi">Áo sơ mi</option>
-            <option value="aokhoac">Áo khoác</option>
-            <option value="aothun">Áo thun</option>
-            <option value="quanjean">Quần Jean</option>
+            <option value={"Khác"}>Chọn loại mặt hàng!</option>
+            <option value={"Quần dài"}>Quần dài</option>
+            <option value={"Quần đùi"}>Quần đùi</option>
+            <option value={"Áo sơ mi"}>Áo sơ mi</option>
+            <option value={"Áo khoác"}>Áo khoác</option>
+            <option value={"Áo thun"}>Áo thun</option>
+            <option value={"Quần jean"}>Quần Jean</option>
+            <option value={"all"}>Tất cả</option>
           </select>
           {/* Các nút tương tự cho các danh mục khác */}
         </div>

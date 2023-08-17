@@ -79,13 +79,13 @@ const EditModal = ({ product, onClose, onUpdate }) => {
             onChange={handleInputChange}
             className="block w-full border rounded py-1 px-2"
           >
-            <option value={"other"}>Chọn loại mặt hàng!</option>
-            <option value={"quandai"}>Quần dài</option>
-            <option value={"quandui"}>Quần đùi</option>
-            <option value={"aosomi"}>Áo sơ mi</option>
-            <option value={"aokhoac"}>Áo khoác</option>
-            <option value={"aothun"}>Áo thun</option>
-            <option value={"quanjean"}>Quần Jean</option>
+            <option value={"Khác"}>Chọn loại mặt hàng!</option>
+            <option value={"Quần dài"}>Quần dài</option>
+            <option value={"Quần đùi"}>Quần đùi</option>
+            <option value={"Áo sơ mi"}>Áo sơ mi</option>
+            <option value={"Áo khoác"}>Áo khoác</option>
+            <option value={"Áo thun"}>Áo thun</option>
+            <option value={"Quần jean"}>Quần Jean</option>
           </select>
         </label>
 

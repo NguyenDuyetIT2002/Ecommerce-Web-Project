@@ -3,19 +3,13 @@ import HomeCard from "../component/HomeCard";
 import { useSelector } from "react-redux";
 import CardFeature from "../component/CardFeature";
 import { GrNext, GrPrevious } from "react-icons/gr";
+import AllProduct from "../component/AllProduct";
 
 const Home = () => {
   const productData = useSelector((state) => state.product.productList);
-  console.log(productData);
-  const shuffledProductData = productData
-    .slice()
-    .sort(() => Math.random() - 0.5);
-  const homeProductCardList = shuffledProductData.slice(0, 5);
-  const homeTrendingProductCardList = productData
-    .slice()
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 12);
-  console.log(homeTrendingProductCardList);
+
+  const homeProductCardList = productData.slice(0, 5);
+  const homeTrendingProductCardList = productData.slice(0, 12);
 
   const loadingArray = new Array(5).fill(null);
   const loadingArrayFeature = new Array(12).fill(null);
@@ -28,6 +22,7 @@ const Home = () => {
   const prevProduct = () => {
     slideProductRef.current.scrollLeft -= 580;
   };
+
   return (
     <div className="p-2 md:p-4 py-2">
       <div className="md:flex gap-4">
@@ -61,6 +56,7 @@ const Home = () => {
                 return (
                   <HomeCard
                     key={e1._id}
+                    id={e1._id}
                     image={e1.image}
                     name={e1.name}
                     price={e1.price}
@@ -103,6 +99,7 @@ const Home = () => {
                 return (
                   <CardFeature
                     key={e1._id}
+                    id={e1._id}
                     image={e1.image}
                     name={e1.name}
                     price={e1.price}
@@ -110,11 +107,13 @@ const Home = () => {
                   />
                 );
               })
-            : loadingArrayFeature.map((e1) => (
-                <CardFeature loading={"Đang load sản phẩm !..."} />
+            : loadingArrayFeature.map((e1, index) => (
+                <CardFeature loading={"Đang load sản phẩm !..."} key={index} />
               ))}
         </div>
       </div>
+
+      <AllProduct heading={"Danh sách sản phẩm"} />
     </div>
   );
 };
